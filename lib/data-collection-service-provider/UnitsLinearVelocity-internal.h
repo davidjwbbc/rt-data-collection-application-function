@@ -1,8 +1,8 @@
-#ifndef _NETWORK_ASSISTANCE_SESSION_INTERNAL_H_
-#define _NETWORK_ASSISTANCE_SESSION_INTERNAL_H_
+#ifndef _UNITS_LINEAR_VELOCITY_INTERNAL_H_
+#define _UNITS_LINEAR_VELOCITY_INTERNAL_H_
 
 /**********************************************************************************************************************************
- * NetworkAssistanceSession - C internal library interface to the NetworkAssistanceSession object
+ * UnitsLinearVelocity - C internal library interface to the UnitsLinearVelocity object
  **********************************************************************************************************************************
  * License: 5G-MAG Public License (v1.0)
  * Authors: David Waring <david.waring2@bbc.co.uk>
@@ -13,9 +13,7 @@
  * https://drive.google.com/file/d/1cinCiA778IErENZ3JN52VFW-1ffHpx7Z/view
  **********************************************************************************************************************************/
 
-// #include "ClientPolicySpecification.h"
-// #include "ApplicationFlowDescription.h"
-// #include "MediaType.h"
+// #include "UnitsLinearVelocity_anyOf.h"
 
 #include "data-collection-sp/data-collection.h"
 
@@ -25,7 +23,7 @@ extern "C" {
 
 /***** Internal library protected functions *****/
 
-extern long _model_network_assistance_session_refcount(data_collection_model_network_assistance_session_t *NetworkAssistanceSession);
+extern long _model_units_linear_velocity_refcount(data_collection_model_units_linear_velocity_t *UnitsLinearVelocity);
 
 #ifdef __cplusplus
 }
@@ -34,5 +32,5 @@ extern long _model_network_assistance_session_refcount(data_collection_model_net
 /* vim:ts=8:sts=4:sw=4:expandtab:
  */
 
-#endif /* ifndef _NETWORK_ASSISTANCE_SESSION_INTERNAL_H_ */
+#endif /* ifndef _UNITS_LINEAR_VELOCITY_INTERNAL_H_ */
 

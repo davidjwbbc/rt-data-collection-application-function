@@ -17,9 +17,9 @@
 #error "This file can only be included from data-collection.h"
 #endif
 
+#include "ClientPolicySpecification.h"
 #include "ApplicationFlowDescription.h"
 #include "MediaType.h"
-#include "ClientQosSpecification.h"
 
 /** \addtogroup dcsp_model
  * @{
@@ -145,6 +145,15 @@ DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_sessio
  */
 DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_network_assistance_session_is_equal_to(const data_collection_model_network_assistance_session_t *network_assistance_session, const data_collection_model_network_assistance_session_t *other_network_assistance_session);
 
+
+/** Check if the naSessionId field of a NetworkAssistanceSession object is set
+ * \public \memberof data_collection_model_network_assistance_session_t
+ *
+ * @param network_assistance_session The NetworkAssistanceSession object to examine.
+ *
+ * @return `true` if the optional naSessionId field is set.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_network_assistance_session_has_na_session_id(const data_collection_model_network_assistance_session_t *network_assistance_session);
 
 
 /** Get the value of the naSessionId field of a NetworkAssistanceSession object
@@ -370,7 +379,7 @@ DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_network_assistance_s
  *
  * @return the value current set for the requestedQoS field.
  */
-DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_qos_specification_t* data_collection_model_network_assistance_session_get_requested_qo_s(const data_collection_model_network_assistance_session_t *network_assistance_session);
+DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_policy_specification_t* data_collection_model_network_assistance_session_get_requested_qo_s(const data_collection_model_network_assistance_session_t *network_assistance_session);
 
 /** Set the value of the requestedQoS field in a NetworkAssistanceSession object
  * \public \memberof data_collection_model_network_assistance_session_t
@@ -380,7 +389,7 @@ DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_qos_specific
  *
  * @return @a network_assistance_session.
  */
-DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_requested_qo_s(data_collection_model_network_assistance_session_t *network_assistance_session, const data_collection_model_client_qos_specification_t* p_requested_qo_s);
+DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_requested_qo_s(data_collection_model_network_assistance_session_t *network_assistance_session, const data_collection_model_client_policy_specification_t* p_requested_qo_s);
 
 /** Move a value to the requestedQoS field in a NetworkAssistanceSession object
  * \public \memberof data_collection_model_network_assistance_session_t
@@ -390,7 +399,7 @@ DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_sessio
  *
  * @return @a network_assistance_session.
  */
-DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_requested_qo_s_move(data_collection_model_network_assistance_session_t *network_assistance_session, data_collection_model_client_qos_specification_t* p_requested_qo_s);
+DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_requested_qo_s_move(data_collection_model_network_assistance_session_t *network_assistance_session, data_collection_model_client_policy_specification_t* p_requested_qo_s);
 
 /** Check if the recommendedQoS field of a NetworkAssistanceSession object is set
  * \public \memberof data_collection_model_network_assistance_session_t
@@ -409,7 +418,7 @@ DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_network_assistance_s
  *
  * @return the value current set for the recommendedQoS field.
  */
-DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_qos_specification_t* data_collection_model_network_assistance_session_get_recommended_qo_s(const data_collection_model_network_assistance_session_t *network_assistance_session);
+DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_policy_specification_t* data_collection_model_network_assistance_session_get_recommended_qo_s(const data_collection_model_network_assistance_session_t *network_assistance_session);
 
 /** Set the value of the recommendedQoS field in a NetworkAssistanceSession object
  * \public \memberof data_collection_model_network_assistance_session_t
@@ -419,7 +428,7 @@ DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_qos_specific
  *
  * @return @a network_assistance_session.
  */
-DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_recommended_qo_s(data_collection_model_network_assistance_session_t *network_assistance_session, const data_collection_model_client_qos_specification_t* p_recommended_qo_s);
+DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_recommended_qo_s(data_collection_model_network_assistance_session_t *network_assistance_session, const data_collection_model_client_policy_specification_t* p_recommended_qo_s);
 
 /** Move a value to the recommendedQoS field in a NetworkAssistanceSession object
  * \public \memberof data_collection_model_network_assistance_session_t
@@ -429,7 +438,7 @@ DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_sessio
  *
  * @return @a network_assistance_session.
  */
-DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_recommended_qo_s_move(data_collection_model_network_assistance_session_t *network_assistance_session, data_collection_model_client_qos_specification_t* p_recommended_qo_s);
+DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_recommended_qo_s_move(data_collection_model_network_assistance_session_t *network_assistance_session, data_collection_model_client_policy_specification_t* p_recommended_qo_s);
 
 /** Check if the notficationURL field of a NetworkAssistanceSession object is set
  * \public \memberof data_collection_model_network_assistance_session_t

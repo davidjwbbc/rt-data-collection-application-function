@@ -1,8 +1,8 @@
-#ifndef _CLIENT_QOS_SPECIFICATION_INTERNAL_H_
-#define _CLIENT_QOS_SPECIFICATION_INTERNAL_H_
+#ifndef _ANGULAR_VELOCITY_INTERNAL_H_
+#define _ANGULAR_VELOCITY_INTERNAL_H_
 
 /**********************************************************************************************************************************
- * ClientQosSpecification - C internal library interface to the ClientQosSpecification object
+ * AngularVelocity - C internal library interface to the AngularVelocity object
  **********************************************************************************************************************************
  * License: 5G-MAG Public License (v1.0)
  * Authors: David Waring <david.waring2@bbc.co.uk>
@@ -13,8 +13,7 @@
  * https://drive.google.com/file/d/1cinCiA778IErENZ3JN52VFW-1ffHpx7Z/view
  **********************************************************************************************************************************/
 
-// #include "UnidirectionalBitRateSpecification.h"
-// #include "PduSetQosPara.h"
+// #include "UnitsAngularVelocity.h"
 
 #include "data-collection-sp/data-collection.h"
 
@@ -24,7 +23,7 @@ extern "C" {
 
 /***** Internal library protected functions *****/
 
-extern long _model_client_qos_specification_refcount(data_collection_model_client_qos_specification_t *ClientQosSpecification);
+extern long _model_angular_velocity_refcount(data_collection_model_angular_velocity_t *AngularVelocity);
 
 #ifdef __cplusplus
 }
@@ -33,5 +32,5 @@ extern long _model_client_qos_specification_refcount(data_collection_model_clien
 /* vim:ts=8:sts=4:sw=4:expandtab:
  */
 
-#endif /* ifndef _CLIENT_QOS_SPECIFICATION_INTERNAL_H_ */
+#endif /* ifndef _ANGULAR_VELOCITY_INTERNAL_H_ */
 

@@ -3,3 +3,5 @@ open5gs
 libtins
 prometheus-client-c
 usrsctp
+!packagefiles/*
+.wraplock

@@ -183,23 +183,35 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_network_a
 }
 
 
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_network_assistance_session_has_na_session_id(const data_collection_model_network_assistance_session_t *obj_network_assistance_session)
+{
+    if (!obj_network_assistance_session) return false;
+
+    const std::shared_ptr<NetworkAssistanceSession > &obj = *reinterpret_cast<const std::shared_ptr<NetworkAssistanceSession >*>(obj_network_assistance_session);
+    if (!obj) return false;
+
+    return obj->getNaSessionId().has_value();
+}
+
 
 extern "C" DATA_COLLECTION_SVC_PRODUCER_API const char* data_collection_model_network_assistance_session_get_na_session_id(const data_collection_model_network_assistance_session_t *obj_network_assistance_session)
 {
     if (!obj_network_assistance_session) {
         const char *result = NULL;
+
         return result;
     }
 
     const std::shared_ptr<NetworkAssistanceSession > &obj = *reinterpret_cast<const std::shared_ptr<NetworkAssistanceSession >*>(obj_network_assistance_session);
     if (!obj) {
         const char *result = NULL;
+
         return result;
     }
 
     typedef typename NetworkAssistanceSession::NaSessionIdType ResultFromType;
     const ResultFromType &result_from = obj->getNaSessionId();
-    const char *result = result_from.c_str();
+    const char *result = result_from.has_value()?result_from.value().c_str():nullptr;
     return result;
 }
 
@@ -214,6 +226,7 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assist
     typedef typename NetworkAssistanceSession::NaSessionIdType ValueType;
 
     ValueType value(value_from);
+
 
     if (!obj->setNaSessionId(value)) return NULL;
 
@@ -232,8 +245,10 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assist
 
     ValueType value(value_from);
 
+
     if (!obj->setNaSessionId(std::move(value))) return NULL;
     ogs_free
+
 (p_na_session_id);
 
     return obj_network_assistance_session;
@@ -606,26 +621,26 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_network_a
 }
 
 
-extern "C" DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_qos_specification_t* data_collection_model_network_assistance_session_get_requested_qo_s(const data_collection_model_network_assistance_session_t *obj_network_assistance_session)
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_policy_specification_t* data_collection_model_network_assistance_session_get_requested_qo_s(const data_collection_model_network_assistance_session_t *obj_network_assistance_session)
 {
     if (!obj_network_assistance_session) {
-        const data_collection_model_client_qos_specification_t *result = NULL;
+        const data_collection_model_client_policy_specification_t *result = NULL;
         return result;
     }
 
     const std::shared_ptr<NetworkAssistanceSession > &obj = *reinterpret_cast<const std::shared_ptr<NetworkAssistanceSession >*>(obj_network_assistance_session);
     if (!obj) {
-        const data_collection_model_client_qos_specification_t *result = NULL;
+        const data_collection_model_client_policy_specification_t *result = NULL;
         return result;
     }
 
     typedef typename NetworkAssistanceSession::RequestedQoSType ResultFromType;
     const ResultFromType &result_from = obj->getRequestedQoS();
-    const data_collection_model_client_qos_specification_t *result = reinterpret_cast<const data_collection_model_client_qos_specification_t*>(result_from.has_value()?&result_from.value():nullptr);
+    const data_collection_model_client_policy_specification_t *result = reinterpret_cast<const data_collection_model_client_policy_specification_t*>(result_from.has_value()?&result_from.value():nullptr);
     return result;
 }
 
-extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_requested_qo_s(data_collection_model_network_assistance_session_t *obj_network_assistance_session, const data_collection_model_client_qos_specification_t* p_requested_qo_s)
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_requested_qo_s(data_collection_model_network_assistance_session_t *obj_network_assistance_session, const data_collection_model_client_policy_specification_t* p_requested_qo_s)
 {
     if (!obj_network_assistance_session) return NULL;
 
@@ -642,7 +657,7 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assist
     return obj_network_assistance_session;
 }
 
-extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_requested_qo_s_move(data_collection_model_network_assistance_session_t *obj_network_assistance_session, data_collection_model_client_qos_specification_t* p_requested_qo_s)
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_requested_qo_s_move(data_collection_model_network_assistance_session_t *obj_network_assistance_session, data_collection_model_client_policy_specification_t* p_requested_qo_s)
 {
     if (!obj_network_assistance_session) return NULL;
 
@@ -655,7 +670,7 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assist
     ValueType value(*reinterpret_cast<const ValueType::value_type*>(value_from));
 
     if (!obj->setRequestedQoS(std::move(value))) return NULL;
-    data_collection_model_client_qos_specification_free
+    data_collection_model_client_policy_specification_free
 (p_requested_qo_s);
 
     return obj_network_assistance_session;
@@ -672,26 +687,28 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_network_a
 }
 
 
-extern "C" DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_qos_specification_t* data_collection_model_network_assistance_session_get_recommended_qo_s(const data_collection_model_network_assistance_session_t *obj_network_assistance_session)
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_policy_specification_t* data_collection_model_network_assistance_session_get_recommended_qo_s(const data_collection_model_network_assistance_session_t *obj_network_assistance_session)
 {
     if (!obj_network_assistance_session) {
-        const data_collection_model_client_qos_specification_t *result = NULL;
+        const data_collection_model_client_policy_specification_t *result = NULL;
+
         return result;
     }
 
     const std::shared_ptr<NetworkAssistanceSession > &obj = *reinterpret_cast<const std::shared_ptr<NetworkAssistanceSession >*>(obj_network_assistance_session);
     if (!obj) {
-        const data_collection_model_client_qos_specification_t *result = NULL;
+        const data_collection_model_client_policy_specification_t *result = NULL;
+
         return result;
     }
 
     typedef typename NetworkAssistanceSession::RecommendedQoSType ResultFromType;
     const ResultFromType &result_from = obj->getRecommendedQoS();
-    const data_collection_model_client_qos_specification_t *result = reinterpret_cast<const data_collection_model_client_qos_specification_t*>(result_from.has_value()?&result_from.value():nullptr);
+    const data_collection_model_client_policy_specification_t *result = reinterpret_cast<const data_collection_model_client_policy_specification_t*>(result_from.has_value()?&result_from.value():nullptr);
     return result;
 }
 
-extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_recommended_qo_s(data_collection_model_network_assistance_session_t *obj_network_assistance_session, const data_collection_model_client_qos_specification_t* p_recommended_qo_s)
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_recommended_qo_s(data_collection_model_network_assistance_session_t *obj_network_assistance_session, const data_collection_model_client_policy_specification_t* p_recommended_qo_s)
 {
     if (!obj_network_assistance_session) return NULL;
 
@@ -702,13 +719,14 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assist
     typedef typename NetworkAssistanceSession::RecommendedQoSType ValueType;
 
     ValueType value(*reinterpret_cast<const ValueType::value_type*>(value_from));
+
 
     if (!obj->setRecommendedQoS(value)) return NULL;
 
     return obj_network_assistance_session;
 }
 
-extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_recommended_qo_s_move(data_collection_model_network_assistance_session_t *obj_network_assistance_session, data_collection_model_client_qos_specification_t* p_recommended_qo_s)
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assistance_session_t *data_collection_model_network_assistance_session_set_recommended_qo_s_move(data_collection_model_network_assistance_session_t *obj_network_assistance_session, data_collection_model_client_policy_specification_t* p_recommended_qo_s)
 {
     if (!obj_network_assistance_session) return NULL;
 
@@ -720,8 +738,10 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assist
 
     ValueType value(*reinterpret_cast<const ValueType::value_type*>(value_from));
 
+
     if (!obj->setRecommendedQoS(std::move(value))) return NULL;
-    data_collection_model_client_qos_specification_free
+    data_collection_model_client_policy_specification_free
+
 (p_recommended_qo_s);
 
     return obj_network_assistance_session;
@@ -742,12 +762,14 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API const char* data_collection_model_ne
 {
     if (!obj_network_assistance_session) {
         const char *result = NULL;
+
         return result;
     }
 
     const std::shared_ptr<NetworkAssistanceSession > &obj = *reinterpret_cast<const std::shared_ptr<NetworkAssistanceSession >*>(obj_network_assistance_session);
     if (!obj) {
         const char *result = NULL;
+
         return result;
     }
 
@@ -769,6 +791,7 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assist
 
     ValueType value(value_from);
 
+
     if (!obj->setNotficationURL(value)) return NULL;
 
     return obj_network_assistance_session;
@@ -786,8 +809,10 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_network_assist
 
     ValueType value(value_from);
 
+
     if (!obj->setNotficationURL(std::move(value))) return NULL;
     ogs_free
+
 (p_notfication_url);
 
     return obj_network_assistance_session;

@@ -1,8 +1,8 @@
-#ifndef _NETWORK_ASSISTANCE_SESSION_INTERNAL_H_
-#define _NETWORK_ASSISTANCE_SESSION_INTERNAL_H_
+#ifndef _RELATIVE_VELOCITY_WITH_UNCERTAINTY_INTERNAL_H_
+#define _RELATIVE_VELOCITY_WITH_UNCERTAINTY_INTERNAL_H_
 
 /**********************************************************************************************************************************
- * NetworkAssistanceSession - C internal library interface to the NetworkAssistanceSession object
+ * RelativeVelocityWithUncertainty - C internal library interface to the RelativeVelocityWithUncertainty object
  **********************************************************************************************************************************
  * License: 5G-MAG Public License (v1.0)
  * Authors: David Waring <david.waring2@bbc.co.uk>
@@ -13,9 +13,8 @@
  * https://drive.google.com/file/d/1cinCiA778IErENZ3JN52VFW-1ffHpx7Z/view
  **********************************************************************************************************************************/
 
-// #include "ClientPolicySpecification.h"
-// #include "ApplicationFlowDescription.h"
-// #include "MediaType.h"
+// #include "RadialVelocity.h"
+// #include "AngularVelocity.h"
 
 #include "data-collection-sp/data-collection.h"
 
@@ -25,7 +24,7 @@ extern "C" {
 
 /***** Internal library protected functions *****/
 
-extern long _model_network_assistance_session_refcount(data_collection_model_network_assistance_session_t *NetworkAssistanceSession);
+extern long _model_relative_velocity_with_uncertainty_refcount(data_collection_model_relative_velocity_with_uncertainty_t *RelativeVelocityWithUncertainty);
 
 #ifdef __cplusplus
 }
@@ -34,5 +33,5 @@ extern long _model_network_assistance_session_refcount(data_collection_model_net
 /* vim:ts=8:sts=4:sw=4:expandtab:
  */
 
-#endif /* ifndef _NETWORK_ASSISTANCE_SESSION_INTERNAL_H_ */
+#endif /* ifndef _RELATIVE_VELOCITY_WITH_UNCERTAINTY_INTERNAL_H_ */
 

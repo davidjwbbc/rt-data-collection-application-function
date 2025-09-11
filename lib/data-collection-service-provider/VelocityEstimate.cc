@@ -30,9 +30,15 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estim
 
 
 
+
+
+
 )
 {
     return reinterpret_cast<data_collection_model_velocity_estimate_t*>(new std::shared_ptr<VelocityEstimate>(new VelocityEstimate(
+
+
+
 
 
 
@@ -501,6 +507,204 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estim
     ValueType value(value_from);
 
     if (!obj->setVUncertainty(std::move(value))) return NULL;
+
+    return obj_velocity_estimate;
+}
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_velocity_estimate_has_r_velocity(const data_collection_model_velocity_estimate_t *obj_velocity_estimate)
+{
+    if (!obj_velocity_estimate) return false;
+
+    const std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<const std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) return false;
+
+    return obj->getRVelocity().has_value();
+}
+
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_radial_velocity_t* data_collection_model_velocity_estimate_get_r_velocity(const data_collection_model_velocity_estimate_t *obj_velocity_estimate)
+{
+    if (!obj_velocity_estimate) {
+        const data_collection_model_radial_velocity_t *result = NULL;
+        return result;
+    }
+
+    const std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<const std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) {
+        const data_collection_model_radial_velocity_t *result = NULL;
+        return result;
+    }
+
+    typedef typename VelocityEstimate::RVelocityType ResultFromType;
+    const ResultFromType &result_from = obj->getRVelocity();
+    const data_collection_model_radial_velocity_t *result = reinterpret_cast<const data_collection_model_radial_velocity_t*>(result_from.has_value()?&result_from.value():nullptr);
+    return result;
+}
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_r_velocity(data_collection_model_velocity_estimate_t *obj_velocity_estimate, const data_collection_model_radial_velocity_t* p_r_velocity)
+{
+    if (!obj_velocity_estimate) return NULL;
+
+    std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) return NULL;
+
+    const auto &value_from = p_r_velocity;
+    typedef typename VelocityEstimate::RVelocityType ValueType;
+
+    ValueType value(*reinterpret_cast<const ValueType::value_type*>(value_from));
+
+    if (!obj->setRVelocity(value)) return NULL;
+
+    return obj_velocity_estimate;
+}
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_r_velocity_move(data_collection_model_velocity_estimate_t *obj_velocity_estimate, data_collection_model_radial_velocity_t* p_r_velocity)
+{
+    if (!obj_velocity_estimate) return NULL;
+
+    std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) return NULL;
+
+    const auto &value_from = p_r_velocity;
+    typedef typename VelocityEstimate::RVelocityType ValueType;
+
+    ValueType value(*reinterpret_cast<const ValueType::value_type*>(value_from));
+
+    if (!obj->setRVelocity(std::move(value))) return NULL;
+    data_collection_model_radial_velocity_free
+(p_r_velocity);
+
+    return obj_velocity_estimate;
+}
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_velocity_estimate_has_a_transverse_velocity(const data_collection_model_velocity_estimate_t *obj_velocity_estimate)
+{
+    if (!obj_velocity_estimate) return false;
+
+    const std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<const std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) return false;
+
+    return obj->getATransverseVelocity().has_value();
+}
+
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_angular_velocity_t* data_collection_model_velocity_estimate_get_a_transverse_velocity(const data_collection_model_velocity_estimate_t *obj_velocity_estimate)
+{
+    if (!obj_velocity_estimate) {
+        const data_collection_model_angular_velocity_t *result = NULL;
+        return result;
+    }
+
+    const std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<const std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) {
+        const data_collection_model_angular_velocity_t *result = NULL;
+        return result;
+    }
+
+    typedef typename VelocityEstimate::ATransverseVelocityType ResultFromType;
+    const ResultFromType &result_from = obj->getATransverseVelocity();
+    const data_collection_model_angular_velocity_t *result = reinterpret_cast<const data_collection_model_angular_velocity_t*>(result_from.has_value()?&result_from.value():nullptr);
+    return result;
+}
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_a_transverse_velocity(data_collection_model_velocity_estimate_t *obj_velocity_estimate, const data_collection_model_angular_velocity_t* p_a_transverse_velocity)
+{
+    if (!obj_velocity_estimate) return NULL;
+
+    std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) return NULL;
+
+    const auto &value_from = p_a_transverse_velocity;
+    typedef typename VelocityEstimate::ATransverseVelocityType ValueType;
+
+    ValueType value(*reinterpret_cast<const ValueType::value_type*>(value_from));
+
+    if (!obj->setATransverseVelocity(value)) return NULL;
+
+    return obj_velocity_estimate;
+}
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_a_transverse_velocity_move(data_collection_model_velocity_estimate_t *obj_velocity_estimate, data_collection_model_angular_velocity_t* p_a_transverse_velocity)
+{
+    if (!obj_velocity_estimate) return NULL;
+
+    std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) return NULL;
+
+    const auto &value_from = p_a_transverse_velocity;
+    typedef typename VelocityEstimate::ATransverseVelocityType ValueType;
+
+    ValueType value(*reinterpret_cast<const ValueType::value_type*>(value_from));
+
+    if (!obj->setATransverseVelocity(std::move(value))) return NULL;
+    data_collection_model_angular_velocity_free
+(p_a_transverse_velocity);
+
+    return obj_velocity_estimate;
+}
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_velocity_estimate_has_e_transverse_velocity(const data_collection_model_velocity_estimate_t *obj_velocity_estimate)
+{
+    if (!obj_velocity_estimate) return false;
+
+    const std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<const std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) return false;
+
+    return obj->getETransverseVelocity().has_value();
+}
+
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_angular_velocity_t* data_collection_model_velocity_estimate_get_e_transverse_velocity(const data_collection_model_velocity_estimate_t *obj_velocity_estimate)
+{
+    if (!obj_velocity_estimate) {
+        const data_collection_model_angular_velocity_t *result = NULL;
+        return result;
+    }
+
+    const std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<const std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) {
+        const data_collection_model_angular_velocity_t *result = NULL;
+        return result;
+    }
+
+    typedef typename VelocityEstimate::ETransverseVelocityType ResultFromType;
+    const ResultFromType &result_from = obj->getETransverseVelocity();
+    const data_collection_model_angular_velocity_t *result = reinterpret_cast<const data_collection_model_angular_velocity_t*>(result_from.has_value()?&result_from.value():nullptr);
+    return result;
+}
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_e_transverse_velocity(data_collection_model_velocity_estimate_t *obj_velocity_estimate, const data_collection_model_angular_velocity_t* p_e_transverse_velocity)
+{
+    if (!obj_velocity_estimate) return NULL;
+
+    std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) return NULL;
+
+    const auto &value_from = p_e_transverse_velocity;
+    typedef typename VelocityEstimate::ETransverseVelocityType ValueType;
+
+    ValueType value(*reinterpret_cast<const ValueType::value_type*>(value_from));
+
+    if (!obj->setETransverseVelocity(value)) return NULL;
+
+    return obj_velocity_estimate;
+}
+
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_e_transverse_velocity_move(data_collection_model_velocity_estimate_t *obj_velocity_estimate, data_collection_model_angular_velocity_t* p_e_transverse_velocity)
+{
+    if (!obj_velocity_estimate) return NULL;
+
+    std::shared_ptr<VelocityEstimate > &obj = *reinterpret_cast<std::shared_ptr<VelocityEstimate >*>(obj_velocity_estimate);
+    if (!obj) return NULL;
+
+    const auto &value_from = p_e_transverse_velocity;
+    typedef typename VelocityEstimate::ETransverseVelocityType ValueType;
+
+    ValueType value(*reinterpret_cast<const ValueType::value_type*>(value_from));
+
+    if (!obj->setETransverseVelocity(std::move(value))) return NULL;
+    data_collection_model_angular_velocity_free
+(p_e_transverse_velocity);
 
     return obj_velocity_estimate;
 }

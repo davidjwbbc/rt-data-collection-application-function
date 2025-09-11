@@ -95,6 +95,8 @@ AfEventNotification.cc
 AfEventNotification-internal.h
 ANBRNetworkAssistanceInvocationRecord.cc
 ANBRNetworkAssistanceInvocationRecord-internal.h
+AngularVelocity.cc
+AngularVelocity-internal.h
 AnyType.cc
 AppExpUeBehaviour.cc
 AppExpUeBehaviour-internal.h
@@ -130,8 +132,8 @@ CellIdentifierType.cc
 CellIdentifierType-internal.h
 CivicAddress.cc
 CivicAddress-internal.h
-ClientQosSpecification.cc
-ClientQosSpecification-internal.h
+ClientPolicySpecification.cc
+ClientPolicySpecification-internal.h
 CollectiveBehaviourFilter.cc
 CollectiveBehaviourFilter-internal.h
 CollectiveBehaviourFilterType_anyOf.cc
@@ -534,6 +536,8 @@ r_2DRelativeLocation.cc
 r_2DRelativeLocation-internal.h
 r_3DRelativeLocation.cc
 r_3DRelativeLocation-internal.h
+RadialVelocity.cc
+RadialVelocity-internal.h
 RangeDirection.cc
 RangeDirection-internal.h
 RedirectResponse.cc
@@ -544,6 +548,8 @@ RelativeDirection_anyOf.cc
 RelativeDirection_anyOf-internal.h
 RelativeDirection.cc
 RelativeDirection-internal.h
+RelativeVelocityWithUncertainty.cc
+RelativeVelocityWithUncertainty-internal.h
 ReportingInformation.cc
 ReportingInformation-internal.h
 RtpHeaderExtInfo.cc
@@ -626,6 +632,14 @@ UnidirectionalBitRateSpecification.cc
 UnidirectionalBitRateSpecification-internal.h
 UnidirectionalQoSSpecification.cc
 UnidirectionalQoSSpecification-internal.h
+UnitsAngularVelocity.cc
+UnitsAngularVelocity-internal.h
+UnitsAngularVelocity_anyOf.cc
+UnitsAngularVelocity_anyOf-internal.h
+UnitsLinearVelocity.cc
+UnitsLinearVelocity-internal.h
+UnitsLinearVelocity_anyOf.cc
+UnitsLinearVelocity_anyOf-internal.h
 Usage_anyOf.cc
 Usage_anyOf-internal.h
 Usage.cc

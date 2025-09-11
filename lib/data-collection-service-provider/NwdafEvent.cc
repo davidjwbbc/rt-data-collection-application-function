@@ -230,16 +230,6 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_nwdaf_event_e 
         return DCM_NWDAF_EVENT_VAL_E2_E_DATA_VOL_TRANS_TIME;
     case NwdafEvent::Enum::VAL_MOVEMENT_BEHAVIOUR:
         return DCM_NWDAF_EVENT_VAL_MOVEMENT_BEHAVIOUR;
-    case NwdafEvent::Enum::VAL_NUM_OF_UE:
-        return DCM_NWDAF_EVENT_VAL_NUM_OF_UE;
-    case NwdafEvent::Enum::VAL_MOV_UE_RATIO:
-        return DCM_NWDAF_EVENT_VAL_MOV_UE_RATIO;
-    case NwdafEvent::Enum::VAL_AVR_SPEED:
-        return DCM_NWDAF_EVENT_VAL_AVR_SPEED;
-    case NwdafEvent::Enum::VAL_SPEED_THRESHOLD:
-        return DCM_NWDAF_EVENT_VAL_SPEED_THRESHOLD;
-    case NwdafEvent::Enum::VAL_MOV_UE_DIRECTION:
-        return DCM_NWDAF_EVENT_VAL_MOV_UE_DIRECTION;
     case NwdafEvent::Enum::VAL_LOC_ACCURACY:
         return DCM_NWDAF_EVENT_VAL_LOC_ACCURACY;
     case NwdafEvent::Enum::VAL_RELATIVE_PROXIMITY:
@@ -323,21 +313,6 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_nwdaf_eve
         return true;
     case DCM_NWDAF_EVENT_VAL_MOVEMENT_BEHAVIOUR:
         *obj = NwdafEvent::Enum::VAL_MOVEMENT_BEHAVIOUR;
-        return true;
-    case DCM_NWDAF_EVENT_VAL_NUM_OF_UE:
-        *obj = NwdafEvent::Enum::VAL_NUM_OF_UE;
-        return true;
-    case DCM_NWDAF_EVENT_VAL_MOV_UE_RATIO:
-        *obj = NwdafEvent::Enum::VAL_MOV_UE_RATIO;
-        return true;
-    case DCM_NWDAF_EVENT_VAL_AVR_SPEED:
-        *obj = NwdafEvent::Enum::VAL_AVR_SPEED;
-        return true;
-    case DCM_NWDAF_EVENT_VAL_SPEED_THRESHOLD:
-        *obj = NwdafEvent::Enum::VAL_SPEED_THRESHOLD;
-        return true;
-    case DCM_NWDAF_EVENT_VAL_MOV_UE_DIRECTION:
-        *obj = NwdafEvent::Enum::VAL_MOV_UE_DIRECTION;
         return true;
     case DCM_NWDAF_EVENT_VAL_LOC_ACCURACY:
         *obj = NwdafEvent::Enum::VAL_LOC_ACCURACY;

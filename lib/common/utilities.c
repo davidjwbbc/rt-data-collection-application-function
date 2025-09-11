@@ -161,7 +161,7 @@ ogs_time_t get_time_from_timespec(struct timespec *ts)
 
 int str_match(const char *line, const char *word_to_find) {
 
-    char* p = strstr(line,word_to_find);
+    const char* p = strstr(line,word_to_find);
     if ((p==line) || (p!=NULL && !isalnum((unsigned char)p[-1])))
     {
         p += strlen(word_to_find);

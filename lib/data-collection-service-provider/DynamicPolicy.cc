@@ -183,23 +183,35 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_dynamic_p
 }
 
 
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_dynamic_policy_has_dynamic_policy_id(const data_collection_model_dynamic_policy_t *obj_dynamic_policy)
+{
+    if (!obj_dynamic_policy) return false;
+
+    const std::shared_ptr<DynamicPolicy > &obj = *reinterpret_cast<const std::shared_ptr<DynamicPolicy >*>(obj_dynamic_policy);
+    if (!obj) return false;
+
+    return obj->getDynamicPolicyId().has_value();
+}
+
 
 extern "C" DATA_COLLECTION_SVC_PRODUCER_API const char* data_collection_model_dynamic_policy_get_dynamic_policy_id(const data_collection_model_dynamic_policy_t *obj_dynamic_policy)
 {
     if (!obj_dynamic_policy) {
         const char *result = NULL;
+
         return result;
     }
 
     const std::shared_ptr<DynamicPolicy > &obj = *reinterpret_cast<const std::shared_ptr<DynamicPolicy >*>(obj_dynamic_policy);
     if (!obj) {
         const char *result = NULL;
+
         return result;
     }
 
     typedef typename DynamicPolicy::DynamicPolicyIdType ResultFromType;
     const ResultFromType &result_from = obj->getDynamicPolicyId();
-    const char *result = result_from.c_str();
+    const char *result = result_from.has_value()?result_from.value().c_str():nullptr;
     return result;
 }
 
@@ -214,6 +226,7 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_dynamic_policy
     typedef typename DynamicPolicy::DynamicPolicyIdType ValueType;
 
     ValueType value(value_from);
+
 
     if (!obj->setDynamicPolicyId(value)) return NULL;
 
@@ -232,8 +245,10 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_dynamic_policy
 
     ValueType value(value_from);
 
+
     if (!obj->setDynamicPolicyId(std::move(value))) return NULL;
     ogs_free
+
 (p_dynamic_policy_id);
 
     return obj_dynamic_policy;
@@ -596,26 +611,26 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_dynamic_p
 }
 
 
-extern "C" DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_qos_specification_t* data_collection_model_dynamic_policy_get_qos_specification(const data_collection_model_dynamic_policy_t *obj_dynamic_policy)
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_client_policy_specification_t* data_collection_model_dynamic_policy_get_qos_specification(const data_collection_model_dynamic_policy_t *obj_dynamic_policy)
 {
     if (!obj_dynamic_policy) {
-        const data_collection_model_client_qos_specification_t *result = NULL;
+        const data_collection_model_client_policy_specification_t *result = NULL;
         return result;
     }
 
     const std::shared_ptr<DynamicPolicy > &obj = *reinterpret_cast<const std::shared_ptr<DynamicPolicy >*>(obj_dynamic_policy);
     if (!obj) {
-        const data_collection_model_client_qos_specification_t *result = NULL;
+        const data_collection_model_client_policy_specification_t *result = NULL;
         return result;
     }
 
     typedef typename DynamicPolicy::QosSpecificationType ResultFromType;
     const ResultFromType &result_from = obj->getQosSpecification();
-    const data_collection_model_client_qos_specification_t *result = reinterpret_cast<const data_collection_model_client_qos_specification_t*>(result_from.has_value()?&result_from.value():nullptr);
+    const data_collection_model_client_policy_specification_t *result = reinterpret_cast<const data_collection_model_client_policy_specification_t*>(result_from.has_value()?&result_from.value():nullptr);
     return result;
 }
 
-extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_dynamic_policy_t *data_collection_model_dynamic_policy_set_qos_specification(data_collection_model_dynamic_policy_t *obj_dynamic_policy, const data_collection_model_client_qos_specification_t* p_qos_specification)
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_dynamic_policy_t *data_collection_model_dynamic_policy_set_qos_specification(data_collection_model_dynamic_policy_t *obj_dynamic_policy, const data_collection_model_client_policy_specification_t* p_qos_specification)
 {
     if (!obj_dynamic_policy) return NULL;
 
@@ -632,7 +647,7 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_dynamic_policy
     return obj_dynamic_policy;
 }
 
-extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_dynamic_policy_t *data_collection_model_dynamic_policy_set_qos_specification_move(data_collection_model_dynamic_policy_t *obj_dynamic_policy, data_collection_model_client_qos_specification_t* p_qos_specification)
+extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_dynamic_policy_t *data_collection_model_dynamic_policy_set_qos_specification_move(data_collection_model_dynamic_policy_t *obj_dynamic_policy, data_collection_model_client_policy_specification_t* p_qos_specification)
 {
     if (!obj_dynamic_policy) return NULL;
 
@@ -645,7 +660,7 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_dynamic_policy
     ValueType value(*reinterpret_cast<const ValueType::value_type*>(value_from));
 
     if (!obj->setQosSpecification(std::move(value))) return NULL;
-    data_collection_model_client_qos_specification_free
+    data_collection_model_client_policy_specification_free
 (p_qos_specification);
 
     return obj_dynamic_policy;
@@ -732,12 +747,14 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API const int32_t data_collection_model_
 {
     if (!obj_dynamic_policy) {
         const int32_t result = 0;
+
         return result;
     }
 
     const std::shared_ptr<DynamicPolicy > &obj = *reinterpret_cast<const std::shared_ptr<DynamicPolicy >*>(obj_dynamic_policy);
     if (!obj) {
         const int32_t result = 0;
+
         return result;
     }
 
@@ -759,6 +776,7 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_dynamic_policy
 
     ValueType value(value_from);
 
+
     if (!obj->setEnforcementBitRate(value)) return NULL;
 
     return obj_dynamic_policy;
@@ -775,6 +793,7 @@ extern "C" DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_dynamic_policy
     typedef typename DynamicPolicy::EnforcementBitRateType ValueType;
 
     ValueType value(value_from);
+
 
     if (!obj->setEnforcementBitRate(std::move(value))) return NULL;
 

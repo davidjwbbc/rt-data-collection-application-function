@@ -17,8 +17,11 @@
 #error "This file can only be included from data-collection.h"
 #endif
 
+#include "RelativeVelocityWithUncertainty.h"
 #include "HorizontalVelocityWithUncertainty.h"
+#include "RadialVelocity.h"
 #include "HorizontalWithVerticalVelocityAndUncertainty.h"
+#include "AngularVelocity.h"
 #include "HorizontalWithVerticalVelocity.h"
 #include "VerticalDirection.h"
 #include "HorizontalVelocity.h"
@@ -327,6 +330,123 @@ DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data
  * @return @a velocity_estimate.
  */
 DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_v_uncertainty_move(data_collection_model_velocity_estimate_t *velocity_estimate, float p_v_uncertainty);
+
+/** Check if the rVelocity field of a VelocityEstimate object is set
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to examine.
+ *
+ * @return `true` if the optional rVelocity field is set.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_velocity_estimate_has_r_velocity(const data_collection_model_velocity_estimate_t *velocity_estimate);
+
+
+/** Get the value of the rVelocity field of a VelocityEstimate object
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to examine.
+ *
+ * @return the value current set for the rVelocity field.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_radial_velocity_t* data_collection_model_velocity_estimate_get_r_velocity(const data_collection_model_velocity_estimate_t *velocity_estimate);
+
+/** Set the value of the rVelocity field in a VelocityEstimate object
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to set the field in.
+ * @param p_r_velocity The value to copy into the VelocityEstimate object.
+ *
+ * @return @a velocity_estimate.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_r_velocity(data_collection_model_velocity_estimate_t *velocity_estimate, const data_collection_model_radial_velocity_t* p_r_velocity);
+
+/** Move a value to the rVelocity field in a VelocityEstimate object
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to set the field in.
+ * @param p_r_velocity The value to move into the VelocityEstimate object.
+ *
+ * @return @a velocity_estimate.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_r_velocity_move(data_collection_model_velocity_estimate_t *velocity_estimate, data_collection_model_radial_velocity_t* p_r_velocity);
+
+/** Check if the aTransverseVelocity field of a VelocityEstimate object is set
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to examine.
+ *
+ * @return `true` if the optional aTransverseVelocity field is set.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_velocity_estimate_has_a_transverse_velocity(const data_collection_model_velocity_estimate_t *velocity_estimate);
+
+
+/** Get the value of the aTransverseVelocity field of a VelocityEstimate object
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to examine.
+ *
+ * @return the value current set for the aTransverseVelocity field.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_angular_velocity_t* data_collection_model_velocity_estimate_get_a_transverse_velocity(const data_collection_model_velocity_estimate_t *velocity_estimate);
+
+/** Set the value of the aTransverseVelocity field in a VelocityEstimate object
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to set the field in.
+ * @param p_a_transverse_velocity The value to copy into the VelocityEstimate object.
+ *
+ * @return @a velocity_estimate.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_a_transverse_velocity(data_collection_model_velocity_estimate_t *velocity_estimate, const data_collection_model_angular_velocity_t* p_a_transverse_velocity);
+
+/** Move a value to the aTransverseVelocity field in a VelocityEstimate object
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to set the field in.
+ * @param p_a_transverse_velocity The value to move into the VelocityEstimate object.
+ *
+ * @return @a velocity_estimate.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_a_transverse_velocity_move(data_collection_model_velocity_estimate_t *velocity_estimate, data_collection_model_angular_velocity_t* p_a_transverse_velocity);
+
+/** Check if the eTransverseVelocity field of a VelocityEstimate object is set
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to examine.
+ *
+ * @return `true` if the optional eTransverseVelocity field is set.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API bool data_collection_model_velocity_estimate_has_e_transverse_velocity(const data_collection_model_velocity_estimate_t *velocity_estimate);
+
+
+/** Get the value of the eTransverseVelocity field of a VelocityEstimate object
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to examine.
+ *
+ * @return the value current set for the eTransverseVelocity field.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API const data_collection_model_angular_velocity_t* data_collection_model_velocity_estimate_get_e_transverse_velocity(const data_collection_model_velocity_estimate_t *velocity_estimate);
+
+/** Set the value of the eTransverseVelocity field in a VelocityEstimate object
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to set the field in.
+ * @param p_e_transverse_velocity The value to copy into the VelocityEstimate object.
+ *
+ * @return @a velocity_estimate.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_e_transverse_velocity(data_collection_model_velocity_estimate_t *velocity_estimate, const data_collection_model_angular_velocity_t* p_e_transverse_velocity);
+
+/** Move a value to the eTransverseVelocity field in a VelocityEstimate object
+ * \public \memberof data_collection_model_velocity_estimate_t
+ *
+ * @param velocity_estimate The VelocityEstimate object to set the field in.
+ * @param p_e_transverse_velocity The value to move into the VelocityEstimate object.
+ *
+ * @return @a velocity_estimate.
+ */
+DATA_COLLECTION_SVC_PRODUCER_API data_collection_model_velocity_estimate_t *data_collection_model_velocity_estimate_set_e_transverse_velocity_move(data_collection_model_velocity_estimate_t *velocity_estimate, data_collection_model_angular_velocity_t* p_e_transverse_velocity);
 
 /** lnode helper for generating ogs_list_t nodes's of type VelocityEstimate
  * \public \memberof data_collection_model_velocity_estimate_t

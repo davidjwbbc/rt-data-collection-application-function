@@ -34,6 +34,7 @@ libspdc_inst_includes = files('''
     data-collection-sp/AfEvent.h
     data-collection-sp/AfEventNotification.h
     data-collection-sp/ANBRNetworkAssistanceInvocationRecord.h
+    data-collection-sp/AngularVelocity.h
     data-collection-sp/AnyType.h
     data-collection-sp/AppExpUeBehaviour.h
     data-collection-sp/ApplicationFlowDescription.h
@@ -52,7 +53,7 @@ libspdc_inst_includes = files('''
     data-collection-sp/CellIdentifierType_anyOf.h
     data-collection-sp/CellIdentifierType.h
     data-collection-sp/CivicAddress.h
-    data-collection-sp/ClientQosSpecification.h
+    data-collection-sp/ClientPolicySpecification.h
     data-collection-sp/CollectiveBehaviourFilter.h
     data-collection-sp/CollectiveBehaviourFilterType_anyOf.h
     data-collection-sp/CollectiveBehaviourFilterType.h
@@ -254,11 +255,13 @@ libspdc_inst_includes = files('''
     data-collection-sp/QueryParameter.h
     data-collection-sp/r_2DRelativeLocation.h
     data-collection-sp/r_3DRelativeLocation.h
+    data-collection-sp/RadialVelocity.h
     data-collection-sp/RangeDirection.h
     data-collection-sp/RedirectResponse.h
     data-collection-sp/RelativeCartesianLocation.h
     data-collection-sp/RelativeDirection_anyOf.h
     data-collection-sp/RelativeDirection.h
+    data-collection-sp/RelativeVelocityWithUncertainty.h
     data-collection-sp/ReportingInformation.h
     data-collection-sp/RtpHeaderExtInfo.h
     data-collection-sp/RtpHeaderExtType_anyOf.h
@@ -300,6 +303,10 @@ libspdc_inst_includes = files('''
     data-collection-sp/UncertaintyEllipsoid.h
     data-collection-sp/UnidirectionalBitRateSpecification.h
     data-collection-sp/UnidirectionalQoSSpecification.h
+    data-collection-sp/UnitsAngularVelocity_anyOf.h
+    data-collection-sp/UnitsAngularVelocity.h
+    data-collection-sp/UnitsLinearVelocity_anyOf.h
+    data-collection-sp/UnitsLinearVelocity.h
     data-collection-sp/Usage_anyOf.h
     data-collection-sp/Usage.h
     data-collection-sp/UsageThreshold.h
