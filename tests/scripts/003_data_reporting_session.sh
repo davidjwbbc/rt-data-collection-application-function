@@ -108,6 +108,7 @@ fetch_expired_data_reporting_session() {
   if [ -n "$data_reporting_session_id" ]; then
     # expiry only happens every 60 seconds and the session must not have been touched in $data_reporting_session_timeout seconds at
     # that point so we need to leave it at least 60+$data_reporting_session_timeout to guarentee a timeout expiry.
+    log_info "Waiting $((data_reporting_session_timeout + 61)) seconds for data reporting session to guarentee expiry, please wait"
     sleep $((data_reporting_session_timeout + 61))
     http_get "$dcaf_directDataReporting_address" "/3gpp-ndcaf_data-reporting/v1/sessions/$data_reporting_session_id"
     if [ "$resp_statuscode" = "404" ]; then
